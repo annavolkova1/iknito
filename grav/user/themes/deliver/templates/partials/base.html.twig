@@ -46,8 +46,8 @@
     <div id="sb-site">
         {% block header %}
         <header id="header">
-                <div class="logo">
-                    <h3><a href="{{ base_url_absolute }}"><!--{{ config.site.title }}--></a></h3>
+                <div class="logo" style="background: url({{ theme_url }}/images/fon.jpg) center bottom;">
+                    <a href="{{ base_url_absolute }}"></a>
                     {% block social %}
                         {% include 'partials/social.html.twig' %}
                     {% endblock %}

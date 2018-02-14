@@ -42,7 +42,7 @@ b, strong, label, th {
 
 #body {
   background: #fff;
-  padding-top: 15rem; }
+  padding-top: 19rem; }
 
 .left {
   float: left; }
@@ -97,17 +97,27 @@ b, strong, label, th {
   position: absolute;
   z-index: 10000;
   width: 100%;
-  height: 12rem;
+  height: 16rem;
+  padding-left: 0;
+  padding-right: 0;
   background-color: rgba(255, 255, 255, 0.9);
   box-shadow: 0 0.05rem 1rem rgba(0, 0, 0, 0.15); }
-  #header > .grid, #header .logo, #header #navbar, #header .social-navigation {
+  .logo {
+	  height: 100%;
+	  width: 100%;
+  }
+  #navbar {
+	  padding-left: 14rem;
+	  padding-right: 14rem;
+  }
+  #header > .grid, #header #navbar, #header .social-navigation {
     height: 50%; }
   #header .fa {
     color: #000; }
   #header .fixed {
     background: #fff;
-    padding-left: 14rem;
-    padding-right: 14rem;
+    padding-left: 0;
+    padding-right: 0;
     position: fixed;
     top: 0;
     left: 0;
