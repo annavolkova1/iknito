@@ -4,7 +4,7 @@
 
 `error` is a [Grav](http://github.com/getgrav/grav) Plugin and allows to redirect errors to nice output pages.
 
-This plugin is included in any package distributed that contains Grav. If you decide to clone Grav from GitHub you will most likely want to install this.
+This plugin is required and you'll find it in any package distributed that contains Grav. If you decide to clone Grav from GitHub you will most likely want to install this.
 
 # Installation
 
@@ -54,6 +54,10 @@ Copy the page file [error.md](pages/error.md) into the `pages` folder of your us
 
 You can now edit the override and tweak it however you prefer.
 
+# Custom error pages
+
+The configuration allows to specify pages different than `/error` for specific error codes. By default, the `404` error leads to the `/error` page. If you change that, make sure the page you point to has a `error` template (which means, its markdown file is `error.md` or in the page frontmatter you specify `template: error`.
+
 # CLI Usage
 The `error` plugin comes with a CLI command that outputs the `grav.log` in a beautified way, with possibility of limiting the amount of errors displayed, as well as include the trace in the output.
 
@@ -82,7 +86,7 @@ This command will check your Grav install to see if your Error plugin is due for
 Manually updating Error is pretty simple. Here is what you will need to do to get this done:
 
 * Delete the `your/site/user/plugins/error` directory.
-* Download the new version of the Error plugin from either [GitHub](https://github.com/getgrav/grav-plugin-error) or [GetGrav.org](http://getgrav.org/downloads/plugins#extras).
+* Downalod the new version of the Error plugin from either [GitHub](https://github.com/getgrav/grav-plugin-error) or [GetGrav.org](http://getgrav.org/downloads/plugins#extras).
 * Unzip the zip file in `your/site/user/plugins` and rename the resulting folder to `error`.
 * Clear the Grav cache. The simplest way to do this is by going to the root Grav directory in terminal and typing `bin/grav clear-cache`.
 

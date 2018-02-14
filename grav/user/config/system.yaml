@@ -22,7 +22,7 @@ home:
   alias: /home
   hide_in_urls: false
 pages:
-  theme: knowledge-base
+  theme: deliver
   order:
     by: default
     dir: asc
@@ -35,14 +35,14 @@ pages:
   publish_dates: true
   process:
     markdown: true
-    twig: false
+    twig: true
   twig_first: false
   never_cache_twig: false
   events:
     page: true
     twig: true
   markdown:
-    extra: false
+    extra: true
     auto_line_breaks: false
     auto_url_links: false
     escape_markup: false
@@ -64,7 +64,7 @@ pages:
   etag: false
   vary_accept_encoding: false
   redirect_default_route: false
-  redirect_default_code: 302
+  redirect_default_code: '302'
   redirect_trailing_slash: true
   ignore_files:
     - .DS_Store
@@ -114,7 +114,7 @@ assets:
   collections:
     jquery: 'system://assets/jquery/jquery-2.x.min.js'
 errors:
-  display: true
+  display: '1'
   log: true
 debugger:
   enabled: false

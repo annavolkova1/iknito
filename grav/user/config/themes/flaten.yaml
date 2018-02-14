@@ -1,0 +1,63 @@
+enabled: true
+streams:
+  schemes:
+    theme:
+      type: ReadOnlyStream
+      paths:
+        - user/themes/flaten
+generall:
+  debug: false
+  onepage: false
+  opengraph: true
+  progress:
+    enabled: false
+    info: 'Sorry but we have not found all images.'
+  header: 0
+  logo:
+    link: 'base_url:home'
+    alt: Flaten
+social:
+  -
+    url: '#0'
+    icon: social-facebook
+  -
+    url: '#0'
+    icon: social-twitter
+  -
+    url: blog.rss
+    icon: social-rss
+opengraph:
+  street_address: 'Street 1234'
+  locality: locality
+  region: region
+  postal_code: '12345'
+  country_name: Germany
+footer:
+  description: 'Praesent commodo cursus magna.'
+  copyright: '2015 - %year% &copy; Marvin Heilemann'
+  contribute: 'Contributed by Marvin Heilemann'
+  contact:
+    title: 'Contact info'
+    address:
+      - '222 Ave C South'
+      - Saskatoon
+      - Saskatchewan
+      - 'Canada S7K 2N5'
+    gps: 1.306.222.3456
+  othermenu:
+    -
+      title: Imprint
+      url: /imprint
+    -
+      title: AGB
+      url: /agb
+  quicklinks:
+    title: 'Quick links'
+    links: null
+  newsletter:
+    title: Newsletter
+    description: null
+    uri: null
+event_template_types: event
+display_months_out: '3'
+enable_single_event_filter: true
