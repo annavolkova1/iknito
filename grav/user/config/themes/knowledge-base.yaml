@@ -1,0 +1,22 @@
+enabled: true
+dropdown:
+  enabled: true
+params:
+  articles:
+    root: /home
+    blacklist:
+      - scratch
+    show:
+      date: true
+      authors: true
+      topics: true
+      time: true
+  front:
+    maxrows: 3
+    maxentries: 5
+  sidebar:
+    maxentries: 5
+    show:
+      categories: true
+      popular: true
+      latest: true

@@ -1,0 +1,75 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+<article>
+	<section class="header">
+		<h1>
+	        {% if page.header.media == 'video' %}
+	        <i class="fa fa-file-video-o rightpad"></i>
+	        {% else %}
+	        <i class="fa fa-file-text-o rightpad"></i>
+	        {% endif %}
+			{{ page.title|e }}
+		</h1>
+	{% if (config.themes['knowledge-base'].params.articles.show.date) or (config.themes['knowledge-base'].params.articles.show.authors) or (config.themes['knowledge-base'].params.articles.show.topics) or (config.themes['knowledge-base'].params.articles.show.time) %}
+		<div class="details">
+		{% if config.themes['knowledge-base'].params.articles.show.date %}
+			<span>{{ page.date|date("F j, Y") }}</span>
+		{% endif %}
+		{% if config.themes['knowledge-base'].params.articles.show.authors %}
+			{% set authorlist = [] %}
+			{% for author in page.taxonomy['author'] %}
+                {# Check to see if a dedicated author page exists #}
+                {% set slug = author|hyphenize|url_encode %}
+                {% set p = page.find('/authors/'~slug) %}
+                {% if p == null %}
+                    {% set authorlist = authorlist|merge(['<a href="'~base_url~'/taxonomy?name=author&amp;val='~(author|url_encode)~'">'~author~'</a>']) %}
+                {% else %}
+                	{% set authorlist = authorlist|merge(['<a href="'~base_url~'/authors/'~slug~'">'~author~'</a>']) %}
+                {% endif %}
+			{% endfor %}
+			<span><i class="fa fa-user"></i> {{ authorlist|join(', ') }}</span>
+		{% endif %}
+		{% if config.themes['knowledge-base'].params.articles.show.topics %}
+			{% set catlist = [] %}
+			{% for cat in page.taxonomy.category %}
+				{% set catlist = catlist|merge(['<a href="'~base_url~'/taxonomy?name=category&amp;val='~(cat|url_encode)~'">'~cat~'</a>']) %}
+			{% endfor %}
+			<span>{{ catlist|join(', ') }}</span>
+		{% endif %}
+		{% if config.themes['knowledge-base'].params.articles.show.time %}
+			<span>{{ page.content|readingtime }}</span>
+		{% endif %}
+		</div>
+	{% endif %}
+	</section>
+	<section class="content">
+    	{{ page.content }}
+        <p></p>
+        {% for image in page.media.images %}
+           {{ image.cropResize(700, 400).html("title", "alt", "itemscreenshot") }}
+        {% endfor %}
+
+    </section>
+    <section class="foot">
+    	{% if page.taxonomy.tag|length > 0 %}
+    	{% set taglist = [] %}
+		{% for tag in page.taxonomy.tag %}
+			{% set taglist = taglist|merge(['<a href="'~base_url~'/taxonomy?name=tag&amp;val='~(tag|url_encode)~'">'~tag~'</a>']) %}
+		{% endfor %}
+    	<div class="tags">
+    		<i class="fa fa-tags rightpad"></i>{{ taglist|join(', ') }}
+    	</div>
+    	{% endif %}
+		{% if config.plugins.relatedpages.enabled and related_pages|length > 0 %}
+    	<div class="related topiclist">
+    		<h2>{{ 'RELATED_ARTICLES'|t }}Related Articles</h2>
+		    {% include 'partials/relatedpages.html.twig' %}
+    	</div>
+		{% endif %}    		
+    </section>
+    <section class="comments">
+    	<h2>{{ 'COMMENTS'|t }}</h2>
+    </section>
+</article>
+{% endblock %}
